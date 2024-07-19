@@ -25,6 +25,6 @@ public class UserController {
             throw new UsernameNotFoundException("User not found");
         }
         model.addAttribute("user", user);
-        return "showuser";
+        return "user_page";
     }
 }

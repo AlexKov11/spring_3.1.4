@@ -22,17 +22,13 @@ public class AdminController {
         this.roleService = roleService;
     }
 
-    @GetMapping
-    public String getAllUsers(Model model) {
-        model.addAttribute("user", userService.getAllUsers());
-        return "users";
-    }
+    @GetMapping()
+    public String addUser(Model model) {
 
-    @GetMapping("/new")
-    public String createUserForm(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute("user", userService.getAllUsers());
         model.addAttribute("allRoles", roleService.getAllRoles());
-        return "new";
+        model.addAttribute("newUser", new User());
+        return "admin_page";
     }
 
     @PostMapping
